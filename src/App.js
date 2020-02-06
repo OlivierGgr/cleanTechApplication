@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <div className="col-md-6">
-        <h3> Cleantech Application </h3>
+        <h3> Cleantech Romanian 2020 Awards Application FORM: </h3>
         <FormContainer />
         <CardFlip/>
       </div>
