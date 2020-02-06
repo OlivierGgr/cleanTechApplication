@@ -1,7 +1,6 @@
 import React, {Component} from 'react';  
 
 /* Import Components */
-import CheckBox from '../components/CheckBox';  
 import Input from '../components/Input';  
 import TextArea from '../components/TextArea';  
 import Select from '../components/Select';
@@ -14,23 +13,26 @@ class FormContainer extends Component {
     this.state = {
       newUser: {
         name: '',
-        age: '',
         gender: '',
-        skills: [],
-        about: ''
+        city:'',
+        email: '',
+        phone: '',
+        about: '',
+        support:''
 
       },
 
-      genderOptions: ['Male', 'Female', 'Others'],
-      skillOptions: ['Programming', 'Development', 'Design', 'Testing']
+      genderOptions: ['Male', 'Female'],
 
     }
     this.handleTextArea = this.handleTextArea.bind(this);
-    this.handleAge = this.handleAge.bind(this);
+    this.handleSupport = this.handleSupport.bind(this);
+    this.handleEmail = this.handleEmail.bind(this);
+    this.handleCity = this.handleCity.bind(this);
+    this.handlePhone = this.handlePhone.bind(this);
     this.handleFullName = this.handleFullName.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
     this.handleClearForm = this.handleClearForm.bind(this);
-    this.handleCheckBox = this.handleCheckBox.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
 
@@ -44,15 +46,31 @@ class FormContainer extends Component {
       }), () => console.log(this.state.newUser))
   }
 
-  handleAge(e) {
-       let value = e.target.value;
-   this.setState( prevState => ({ newUser : 
-        {...prevState.newUser, age: value
-        }
-      }), () => console.log(this.state.newUser))
-  }
+    handleCity(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, city: value
+                }
+        }), () => console.log(this.state.newUser))
+    }
 
-  handleInput(e) {
+    handleEmail(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, email: value
+                }
+        }), () => console.log(this.state.newUser))
+    }
+
+    handlePhone(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, phone: value
+                }
+        }), () => console.log(this.state.newUser))
+    }
+
+    handleInput(e) {
        let value = e.target.value;
        let name = e.target.name;
    this.setState( prevState => ({ newUser : 
@@ -70,24 +88,15 @@ class FormContainer extends Component {
       }
       }), ()=>console.log(this.state.newUser))
   }
-
-
-  handleCheckBox(e) {
-
-    const newSelection = e.target.value;
-    let newSelectionArray;
-
-    if(this.state.newUser.skills.indexOf(newSelection) > -1) {
-      newSelectionArray = this.state.newUser.skills.filter(s => s !== newSelection)
-    } else {
-      newSelectionArray = [...this.state.newUser.skills, newSelection];
+    handleSupport(e) {
+        console.log("Inside handleSupport");
+        let value = e.target.value;
+        this.setState(prevState => ({
+            newUser: {
+                ...prevState.newUser, support: value
+            }
+        }), ()=>console.log(this.state.newUser))
     }
-
-      this.setState( prevState => ({ newUser:
-        {...prevState.newUser, skills: newSelectionArray }
-      })
-      )
-}
 
   handleFormSubmit(e) {
     e.preventDefault();
@@ -113,10 +122,12 @@ class FormContainer extends Component {
       this.setState({ 
         newUser: {
           name: '',
-          age: '',
           gender: '',
-          skills: [],
-          about: ''
+          city:'',
+          email: '',
+          phone: '',
+          about: '',
+          support:''
         },
       })
   }
@@ -127,42 +138,68 @@ class FormContainer extends Component {
         <form className="container-fluid" onSubmit={this.handleFormSubmit}>
        
             <Input inputType={'text'}
-                   title= {'Full Name'} 
+                   title= {'Candidate name: '}
                    name= {'name'}
                    value={this.state.newUser.name} 
                    placeholder = {'Enter your name'}
                    handleChange = {this.handleInput}
                    
                    /> {/* Name of the user */}
-        
-          <Input inputType={'number'} 
-                name={'age'}
-                 title= {'Age'} 
-                 value={this.state.newUser.age} 
-                placeholder = {'Enter your age'}
-                 handleChange={this.handleAge} /> {/* Age */} 
 
+            <Select title={'Gender'}
+                    name={'gender'}
+                    options = {this.state.genderOptions}
+                    value = {this.state.newUser.gender}
+                    placeholder = {'Select Gender'}
+                    handleChange = {this.handleInput}
+            /> {/* Gender Selection */}
 
-          <Select title={'Gender'}
-                  name={'gender'}
-                  options = {this.state.genderOptions} 
-                  value = {this.state.newUser.gender}
-                  placeholder = {'Select Gender'}
-                  handleChange = {this.handleInput}
-                  /> {/* Age Selection */}
-          <CheckBox  title={'Skills'}
-                  name={'skills'}
-                  options={this.state.skillOptions}
-                  selectedOptions = { this.state.newUser.skills}
-                  handleChange={this.handleCheckBox}
-                   /> {/* Skill */}
+            <Input inputType={'city'}
+                   title= {'Candidate City: '}
+                   name= {'City'}
+                   value={this.state.newUser.city}
+                   placeholder = {'Enter your city'}
+                   handleChange = {this.handleCity}
+
+            /> {/* City of the user */}
+
+            <Input inputType={'email'}
+                   title= {'Candidate email: '}
+                   name= {'email'}
+                   value={this.state.newUser.email}
+                   placeholder = {'Enter your email'}
+                   handleChange = {this.handleEmail}
+
+            /> {/* Email of the user */}
+
+            <Input inputType={'number'}
+                   title= {'Candidate Phone: '}
+                   name= {'phone'}
+                   value={this.state.newUser.phone}
+                   placeholder = {'Enter your phone'}
+                   handleChange = {this.handlePhone}
+
+            />{" "}{/* Phone of the user */}
+
           <TextArea
-            title={'About you.'}
+            title={'Brief idea description'}
             rows={10}
             value={this.state.newUser.about}
-            name={'currentPetInfo'}
+            name={'IdeaInfo'}
             handleChange={this.handleTextArea}
-            placeholder={'Describe your past experience and skills'} />{/* About you */}
+            placeholder={'Describe your idea in a few words'}
+
+          />{/* Idea Description */}
+
+            <TextArea
+                title={'Support needed'}
+                rows={10}
+                value={this.state.newUser.support}
+                name={'SupportInfo'}
+                handleChange={this.handleSupport}
+                placeholder={'Please describe what kind of support you need'}
+
+            />{/* Support needed */}
 
           <Button 
               action = {this.handleFormSubmit}
