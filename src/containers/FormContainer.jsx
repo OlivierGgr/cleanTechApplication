@@ -14,21 +14,26 @@ class FormContainer extends Component {
       newUser: {
         name: '',
         gender: '',
-        city:'',
         email: '',
         phone: '',
-        about: '',
-        support:''
-
+        companyName:'',
+        companySite:'',
+        repName: '',
+        repEmail: '',
+        repPhone: '',
+        reason: '',
       },
 
       genderOptions: ['Male', 'Female'],
 
     }
     this.handleTextArea = this.handleTextArea.bind(this);
-    this.handleSupport = this.handleSupport.bind(this);
     this.handleEmail = this.handleEmail.bind(this);
-    this.handleCity = this.handleCity.bind(this);
+    this.handleCompanyName = this.handleCompanyName.bind(this);
+    this.handleCompanySite = this.handleCompanySite.bind(this);
+    this.handleRepName = this.handleRepName.bind(this);
+    this.handleRepEmail = this.handleRepEmail.bind(this);
+    this.handleRepPhone = this.handleRepPhone.bind(this);
     this.handlePhone = this.handlePhone.bind(this);
     this.handleFullName = this.handleFullName.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
@@ -46,14 +51,21 @@ class FormContainer extends Component {
       }), () => console.log(this.state.newUser))
   }
 
-    handleCity(e) {
+    handleCompanyName(e) {
         let value = e.target.value;
         this.setState( prevState => ({ newUser :
-                {...prevState.newUser, city: value
+                {...prevState.newUser, companyName: value
                 }
         }), () => console.log(this.state.newUser))
     }
 
+    handleCompanySite(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, companySite: value
+                }
+        }), () => console.log(this.state.newUser))
+    }
     handleEmail(e) {
         let value = e.target.value;
         this.setState( prevState => ({ newUser :
@@ -70,6 +82,21 @@ class FormContainer extends Component {
         }), () => console.log(this.state.newUser))
     }
 
+    handleRepEmail(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, repEmail: value
+                }
+        }), () => console.log(this.state.newUser))
+    }
+
+    handleRepPhone(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, repPhone: value
+                }
+        }), () => console.log(this.state.newUser))
+    }
     handleInput(e) {
        let value = e.target.value;
        let name = e.target.name;
@@ -79,24 +106,23 @@ class FormContainer extends Component {
       }), () => console.log(this.state.newUser))
   }
 
+    handleRepName(e) {
+        let value = e.target.value;
+        this.setState( prevState => ({ newUser :
+                {...prevState.newUser, repName: value
+                }
+        }), () => console.log(this.state.newUser))
+    }
+
   handleTextArea(e) {
     console.log("Inside handleTextArea");
     let value = e.target.value;
     this.setState(prevState => ({
       newUser: {
-        ...prevState.newUser, about: value
+        ...prevState.newUser, reason: value
       }
       }), ()=>console.log(this.state.newUser))
   }
-    handleSupport(e) {
-        console.log("Inside handleSupport");
-        let value = e.target.value;
-        this.setState(prevState => ({
-            newUser: {
-                ...prevState.newUser, support: value
-            }
-        }), ()=>console.log(this.state.newUser))
-    }
 
   handleFormSubmit(e) {
     e.preventDefault();
@@ -123,11 +149,14 @@ class FormContainer extends Component {
         newUser: {
           name: '',
           gender: '',
-          city:'',
+          companyName:'',
+          companySite:'',
+          repName: '',
+          repEmail: '',
+          repPhone: '',
           email: '',
           phone: '',
-          about: '',
-          support:''
+          reason: '',
         },
       })
   }
@@ -138,10 +167,10 @@ class FormContainer extends Component {
         <form className="container-fluid" onSubmit={this.handleFormSubmit}>
        
             <Input inputType={'text'}
-                   title= {'Candidate name: '}
+                   title= {'Applicant name: '}
                    name= {'name'}
-                   value={this.state.newUser.name} 
-                   placeholder = {'Enter your name'}
+                   value={this.state.newUser.name}
+                   placeholder = {'Name of the person submitting the application'}
                    handleChange = {this.handleInput}
                    
                    /> {/* Name of the user */}
@@ -154,17 +183,8 @@ class FormContainer extends Component {
                     handleChange = {this.handleInput}
             /> {/* Gender Selection */}
 
-            <Input inputType={'city'}
-                   title= {'Candidate City: '}
-                   name= {'City'}
-                   value={this.state.newUser.city}
-                   placeholder = {'Enter your city'}
-                   handleChange = {this.handleCity}
-
-            /> {/* City of the user */}
-
             <Input inputType={'email'}
-                   title= {'Candidate email: '}
+                   title= {'Applicant email: '}
                    name= {'email'}
                    value={this.state.newUser.email}
                    placeholder = {'Enter your email'}
@@ -173,7 +193,7 @@ class FormContainer extends Component {
             /> {/* Email of the user */}
 
             <Input inputType={'number'}
-                   title= {'Candidate Phone: '}
+                   title= {'Applicant phone: '}
                    name= {'phone'}
                    value={this.state.newUser.phone}
                    placeholder = {'Enter your phone'}
@@ -181,25 +201,61 @@ class FormContainer extends Component {
 
             />{" "}{/* Phone of the user */}
 
+            <Input inputType={'Company name'}
+                   title= {'Company name: '}
+                   name= {'Company name'}
+                   value={this.state.newUser.companyName}
+                   placeholder = {'Enter Company Name'}
+                   handleChange = {this.handleCompanyName}
+
+            /> {/* Name of the Company */}
+
+            <Input inputType={'website'}
+                   title= {'Company website: '}
+                   name= {'Company website'}
+                   value={this.state.newUser.companySite}
+                   placeholder = {'Enter Company Website'}
+                   handleChange = {this.handleCompanySite}
+
+            /> {/* Site of the Company */}
+
+            <Input inputType={'text'}
+                   title= {'Name of representative: '}
+                   name= {'RepName'}
+                   value={this.state.newUser.repName}
+                   placeholder = {'Name of the company representative'}
+                   handleChange = {this.handleRepName}
+
+            /> {/* Name of the representative */}
+
+            <Input inputType={'email'}
+                   title= {'Representative email: '}
+                   name= {'email'}
+                   value={this.state.newUser.repEmail}
+                   placeholder = {'Enter the representative email'}
+                   handleChange = {this.handleRepEmail}
+
+            /> {/* Email of the user */}
+
+            <Input inputType={'number'}
+                   title= {'Representative Phone number: '}
+                   name= {'phone'}
+                   value={this.state.newUser.repPhone}
+                   placeholder = {'Enter the company representative phone number'}
+                   handleChange = {this.handleRepPhone}
+
+            />{" "}{/* Phone of the user */}
+
           <TextArea
-            title={'Brief idea description'}
+            title={'Reason for Nomination'}
             rows={10}
             value={this.state.newUser.about}
-            name={'IdeaInfo'}
+            name={'Reason for Nomination'}
             handleChange={this.handleTextArea}
-            placeholder={'Describe your idea in a few words'}
+            placeholder={'Please describe why this company should be considered for the award'}
 
           />{/* Idea Description */}
 
-            <TextArea
-                title={'Support needed'}
-                rows={10}
-                value={this.state.newUser.support}
-                name={'SupportInfo'}
-                handleChange={this.handleSupport}
-                placeholder={'Please describe what kind of support you need'}
-
-            />{/* Support needed */}
 
           <Button 
               action = {this.handleFormSubmit}
