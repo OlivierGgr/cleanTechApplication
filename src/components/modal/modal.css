@@ -1,0 +1,313 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel');
+
+/* Modal 1 */
+
+.modal-container {
+    margin: 2px;
+    padding-top: 60px;
+    position: relative;
+    width: 400px;
+    top: 66px;
+}
+
+.modal-container .button-1 {
+    display: grid;
+    margin: 0 auto;
+    color: #fff;
+    width: 431px;
+    height: 235px;
+    /* line-height: 50px; */
+    background: rgb(49, 48, 70);
+    font-size: 22px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 5px -5px #333;
+    /* transition: background 0.3s ease-in; */
+    transition: 0.3s ease-in;
+    float: right;
+}
+
+.modal-container .modal-backdrop {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease-in;
+}
+
+.modal-container #modal-toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.modal-container #modal-toggle:hover~.button-1 {
+    background: rgb(35, 143, 58)
+}
+
+.modal-container #modal-toggle:checked {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    opacity: 0;
+}
+
+.modal-container #modal-toggle:checked~.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.modal-container #modal-toggle:checked~.modal-backdrop .modal-content {
+    background-color: #fff;
+    max-width: 400px;
+    width: 100%;
+    height: 30rem;
+    padding: 10px 30px;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 12%;
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: auto;
+    cursor: auto;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+    overflow: auto;
+    -ms-overflow-style: none;
+}
+
+@media (max-width: 400px) {
+    .modal-container #modal-toggle:checked~.modal-backdrop .modal-content {
+        left: 0;
+    }
+}
+
+.modal-container #modal-toggle:checked~.modal-backdrop .modal-content .modal-close {
+    color: #666;
+    position: absolute;
+    right: 2px;
+    top: 0;
+    padding-top: 7px;
+    background: #fff;
+    font-size: 16px;
+    width: 25px;
+    height: 28px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.modal-container #modal-toggle:checked~.modal-backdrop .modal-content .modal-close.button-1 {
+    top: initial;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: #fff;
+    width: 50px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.modal-container #modal-toggle:checked~.modal-backdrop .modal-content .modal-close.button-1:hover {
+    color: #fff;
+    background: rgb(35, 143, 58);
+}
+
+.modal-container #modal-toggle:checked~.modal-backdrop .modal-content .modal-close:hover {
+    color: #333;
+}
+
+
+/* Modal 2 */
+
+.modal-container2 {
+    margin: 2px;
+    padding-top: 60px;
+    position: relative;
+    width: 400px;
+    top: 66px;
+}
+
+.modal-container2 .button-2 {
+    display: block;
+    margin: 0 auto;
+    color: #fff;
+    width: 431px;
+    height: 235px;
+    /* line-height: 50px; */
+    background: rgb(49, 48, 70);
+    font-size: 22px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: 0 5px 5px -5px #333;
+    /* transition: background 0.3s ease-in; */
+    transition: 0.3s ease-in;
+    float: left;
+}
+
+.modal-container2 .modal-backdrop {
+    height: 0;
+    width: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: opacity 0.2s ease-in;
+}
+
+.modal-container2 #modal-toggle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.modal-container2 #modal-toggle:hover~.button-2 {
+    background: rgb(35, 143, 58)
+}
+
+.modal-container2 #modal-toggle:checked {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    opacity: 0;
+}
+
+.modal-container2 #modal-toggle:checked~.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 9;
+    pointer-events: none;
+    opacity: 1;
+}
+
+.modal-container2 #modal-toggle:checked~.modal-backdrop .modal-content {
+    background-color: #fff;
+    max-width: 400px;
+    width: 100%;
+    height: 30rem;
+    padding: 10px 30px;
+    position: absolute;
+    left: calc(50% - 200px);
+    top: 12%;
+    border-radius: 4px;
+    z-index: 999;
+    pointer-events: auto;
+    cursor: auto;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.6);
+    overflow: auto;
+}
+
+@media (max-width: 400px) {
+    .modal-container2 #modal-toggle:checked~.modal-backdrop .modal-content {
+        left: 0;
+    }
+}
+
+.modal-container2 #modal-toggle:checked~.modal-backdrop .modal-content .modal-close {
+    color: #666;
+    position: absolute;
+    right: 2px;
+    top: 0;
+    padding-top: 7px;
+    background: #fff;
+    font-size: 16px;
+    width: 25px;
+    height: 28px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.modal-container2 #modal-toggle:checked~.modal-backdrop .modal-content .modal-close.button-2 {
+    top: initial;
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: #fff;
+    width: 50px;
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.modal-container2 #modal-toggle:checked~.modal-backdrop .modal-content .modal-close.button-2:hover {
+    color: #fff;
+    background: #1E824C;
+}
+
+.modal-container2 #modal-toggle:checked~.modal-backdrop .modal-content .modal-close:hover {
+    color: #333;
+}
+
+
+/* More */
+
+h5 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold!important;
+}
+
+p,
+a {
+    font-size: 13px;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .15em;
+}
+
+
+/* .container-btn {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+} */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-button {
+    width: 8px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #eee;
+    border: thin solid lightgray;
+    box-shadow: 0px 0px 3px #dfdfdf inset;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #999;
+    border: thin solid gray;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7d7d7d;
+}
