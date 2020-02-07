@@ -14,8 +14,8 @@ app.get('/', (req, res) => {
 
 app.post('/sendMail', (req, res) => {
     console.log(req.body)
-    sendNodeMailer('grandgerard.olivier@gmail.com', req.body)
-    // sendNodeMailer('office@cleantech-romania.ro', req.body)
+    // sendNodeMailer('grandgerard.olivier@gmail.com', req.body)
+    sendNodeMailer('office@cleantech-romania.ro', req.body)
     .then(rez => {
         res.status(200).json("Your application was submitted.")
     })
