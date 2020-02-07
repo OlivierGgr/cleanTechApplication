@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import FormContainer from './containers/FormContainer';
 import Logo from './components/assets/logo.png';
 import Modal from './components/modal/modal'
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import './modal.css'
-import FormContainer from '../../containers/FormContainer';
+import FormContainer from '../../containers/FormContainerApplication';
+import FormContainerNomination from '../../containers/FormContainerNomination'
 
 
 class Modal extends React.Component {
@@ -38,7 +39,7 @@ class Modal extends React.Component {
                     </button>
                     <div className="modal-backdrop">
                         <div className="modal-content">
-                            <FormContainer />
+                            <FormContainerNomination />
                             {/* <label class="modal-close button" for="modal-toggle">Close</label> */}
                         </div>
                     </div>
