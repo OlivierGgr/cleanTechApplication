@@ -1,12 +1,9 @@
 import React from 'react';
+import FormContainer from '../../forms/FormContainerApplication';
+import FormContainerNomination from '../../forms/FormContainerNomination'
 import './modal.css'
-import FormContainer from '../../containers/FormContainerApplication';
-import FormContainerNomination from '../../containers/FormContainerNomination'
 
-
-class Modal extends React.Component {
-
-    render() {
+const Modal = () => {
         return (
             <div className='container-btn'>
                 <div className="modal-container">
@@ -22,9 +19,7 @@ class Modal extends React.Component {
                     </button>
                     <div className="modal-backdrop">
                         <div className="modal-content">
-                            
                             <FormContainer />
-                            {/* <label class="modal-close button" for="modal-toggle">Close</label> */}
                         </div>
                     </div>
                 </div>
@@ -33,21 +28,18 @@ class Modal extends React.Component {
                     <input id="modal-toggle" type="checkbox" />
                     <button className='button-2'>
                         <h5>Nomination</h5>
-                        <p>If you know a Romanian Company or a Foreign Company with offices in Romaniawhat you believe is a model for cleantech technologies put in practice, please fill in the form below and send the nomination for Cleantech Romania 2020 Awards. It can very well be you company or the company you work for.
+                        <p>If you know a Romanian Company or a Foreign Company with offices in Romania what you believe is a model for cleantech technologies put in practice, please fill in the form below and send the nomination for Cleantech Romania 2020 Awards. It can very well be you company or the company you work for.
                         </p>
                         <a>Click here!</a>
                     </button>
                     <div className="modal-backdrop">
                         <div className="modal-content">
                             <FormContainerNomination />
-                            {/* <label class="modal-close button" for="modal-toggle">Close</label> */}
                         </div>
                     </div>
                 </div>
             </div>
-
         )
     }
-}
 
 export default Modal;

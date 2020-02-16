@@ -1,36 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import firebase from 'firebase'
-
-/* Import Components */
+import React, { useState, useEffect, useRef } from 'react';
 import Input from '../components/Input';  
 import TextArea from '../components/TextArea';  
-import Select from '../components/Select';
 import Button from '../components/Button'
 
 const FormContainerNomination = (props) => {
-
-    useEffect(() => {
-      const firebaseConfig = {
-        apiKey: "AIzaSyCEiyIrLiy0HCVcSITYEJ56KJeSvaP7xXQ",
-        authDomain: "michel-80bc2.firebaseapp.com",
-        databaseURL: "https://michel-80bc2.firebaseio.com",
-        projectId: "michel-80bc2",
-        storageBucket: "michel-80bc2.appspot.com",
-        messagingSenderId: "610545575100",
-        appId: "1:610545575100:web:0933de959119e4b5abdcb9",
-        measurementId: "G-S74MK2LYR7"
-    };
-    if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
-    }
-      firebase.database()
-      .ref('nominationsCounter')
-      .on('value', (data) => {
-          console.log('value' + ' : ' + data.toJSON())
-          let counter = data.toJSON()
-          setCounter(counter +1)
-      })
-    })
 
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
@@ -44,9 +17,25 @@ const FormContainerNomination = (props) => {
     const [reason, setReason] = useState('')
 
     const handleSubmit = (event) => {
-        event.preventDefault()
-        email.length > 0 &&
-            fetch('http://localhost:5000/sendMail', {
+      event.preventDefault()
+      email.length > 0 &&
+        fetch('http://localhost:5000/feature/counter/nominations', {
+          method: 'GET'
+        })
+        .then(res => res.json())
+        .then(res => {
+          setCounter(res)
+        })
+    }
+
+    // USING useEffect ON UPDATE ONLY
+    const isInitialMount = useRef(true)
+
+    useEffect(() => {
+      if(isInitialMount.current) {
+        isInitialMount.current = false
+      } else {
+              fetch('http://localhost:5000/feature/sendMail', {
                 method: 'POST',
                 headers: new Headers({
                     'Content-Type': 'application/json'
@@ -69,11 +58,7 @@ const FormContainerNomination = (props) => {
             })
                 .then(res => res.json())
                 .then(res => alert(res))
-                .then(  
-                  firebase.database()
-                .ref()
-                .update({ 'nominationsCounter': counter }))
-    }
+    }}, [counter])
 
     return (
         <form className="container-fluid" onSubmit={handleSubmit}>
