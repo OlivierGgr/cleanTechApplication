@@ -6,7 +6,7 @@
 
 __Stack :__
 - HTML/CSS
-- React/Hooks
+- React/React Hooks
 - Node.js/Express.js
 - Firebase/NoSQL
 
