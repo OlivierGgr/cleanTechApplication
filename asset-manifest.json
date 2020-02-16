@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/cleanTechApplication/static/css/main.1e7848ce.chunk.css",
+    "main.js": "/cleanTechApplication/static/js/main.05c593cb.chunk.js",
+    "main.js.map": "/cleanTechApplication/static/js/main.05c593cb.chunk.js.map",
+    "runtime-main.js": "/cleanTechApplication/static/js/runtime-main.e6ead5f0.js",
+    "runtime-main.js.map": "/cleanTechApplication/static/js/runtime-main.e6ead5f0.js.map",
+    "static/css/2.67123b20.chunk.css": "/cleanTechApplication/static/css/2.67123b20.chunk.css",
+    "static/js/2.e1218900.chunk.js": "/cleanTechApplication/static/js/2.e1218900.chunk.js",
+    "static/js/2.e1218900.chunk.js.map": "/cleanTechApplication/static/js/2.e1218900.chunk.js.map",
+    "index.html": "/cleanTechApplication/index.html",
+    "precache-manifest.87ab8fe241261b3cab5441e7bd16a3cc.js": "/cleanTechApplication/precache-manifest.87ab8fe241261b3cab5441e7bd16a3cc.js",
+    "service-worker.js": "/cleanTechApplication/service-worker.js",
+    "static/css/2.67123b20.chunk.css.map": "/cleanTechApplication/static/css/2.67123b20.chunk.css.map",
+    "static/css/main.1e7848ce.chunk.css.map": "/cleanTechApplication/static/css/main.1e7848ce.chunk.css.map",
+    "static/js/2.e1218900.chunk.js.LICENSE.txt": "/cleanTechApplication/static/js/2.e1218900.chunk.js.LICENSE.txt",
+    "static/media/logo.png": "/cleanTechApplication/static/media/logo.4a5e5a83.png",
+    "static/media/App.css": "/cleanTechApplication/static/media/yas2.0605a8a1.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e6ead5f0.js",
+    "static/css/2.67123b20.chunk.css",
+    "static/js/2.e1218900.chunk.js",
+    "static/css/main.1e7848ce.chunk.css",
+    "static/js/main.05c593cb.chunk.js"
+  ]
+}
