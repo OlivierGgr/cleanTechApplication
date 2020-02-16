@@ -1,7 +1,7 @@
 # CleanTech Romania 2020 Nominations and Applications Page
 
 **gh-pages link:** https://olivierggr.github.io/cleanTechApplication/ 
-2-
+
 ### Originally built for CleanTech Romania with two colleagues during a 2-day hackathon.
 
 __Stack :__
