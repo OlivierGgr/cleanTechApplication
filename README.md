@@ -16,3 +16,5 @@ The web server is deployed on Heroku and the DB on Firebase.
 
 For testing purposes, I invite you to fill one of the forms and click 'Apply'. 
 __You'll receive an email in the address specified in the form.__
+
+![email with user details](https://i.imgur.com/DreutQt.png)
