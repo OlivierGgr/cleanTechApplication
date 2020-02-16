@@ -4,7 +4,7 @@
 
 ### Originally built for CleanTech Romania with two colleagues during a 2-day hackathon.
 
-![CleanTech Romania 2020 Nominations and Applications Page](https://imgur.com/NIlwIFA)
+![CleanTech Romania 2020 Nominations and Applications Page](https://i.imgur.com/NIlwIFA.jpg)
 
 __Stack :__
 - HTML/CSS
